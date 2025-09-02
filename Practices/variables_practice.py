@@ -1,14 +1,12 @@
-print("absolute test for printing")
+#DD Period 7 Variables practice
 
-multi_digit = 19
-single_digit = 4
-
-print(multi_digit)
-
-multi_digit = 6942
-
-print(multi_digit)
-
-getted_scammed_idiot = input("Who are you and what is your bank information")
-
-print (getted_scammed_idiot)
+user_name = "daniel"
+small_number = 7
+big_number = 983
+breakfast = "cinnamon oat cheerios"
+favorite_color = "orange"
+school = "UCAS"
+year = 2025
+eye_color = "blue"
+age = 14
+favorite_subject = "computers"
