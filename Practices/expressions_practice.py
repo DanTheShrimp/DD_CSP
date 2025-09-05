@@ -14,7 +14,7 @@ print("Your skin.")
 
 skin = 500
 totally_human = 3
-print("Each 'human' gets", skin/totally_human, " of your skin!" )
+print("Each 'human' gets", skin//totally_human, " of your skin!" )
 
 amount_of_friends = 4
 
@@ -29,4 +29,4 @@ print("...")
 print("...")
 print("...")
 print("...")
-print("The average age of your friend group is", (friend1 + friend2 + friend3 + friend4)/4, " wow!")
+print("The average age of your friend group is", (friend1 + friend2 + friend3 + friend4)//4, " wow!")
