@@ -15,4 +15,5 @@ income_left = income_left_after_savings-(rent+utilities+groceries+transportation
 
 print("You will be saving $", savings, "Every month!")
 print("You will have $", income_left, "after all of your expenses.")
-print("That means you will be saving")
+print("That means you will be saving $", savings*12, "each year!")
+print("And you will have $",income_left*12, "to spend each year." )
