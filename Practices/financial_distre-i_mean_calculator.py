@@ -12,8 +12,19 @@ savings = income*0.1
 income_left_after_savings = income*0.9
 
 income_left = income_left_after_savings-(rent+utilities+groceries+transportation)
+total_expenses = rent+utilities+groceries+transportation
+percentage_expenses = total_expenses/income_left_after_savings
 
-print("You will be saving $", savings, "Every month!")
-print("You will have $", income_left, "after all of your expenses.")
-print("That means you will be saving $", savings*12, "each year!")
-print("And you will have $",income_left*12, "to spend each year." )
+print("You will be saving $", round(savings, 2), "every month!")
+print("You will have $", round(income_left, 2), "after all of your expenses.")
+print("That means you will be saving $", round(savings*12, 2), "each year!")
+print("And you will have $", round(income_left*12, 2), "to spend each year." )
+
+if percentage_expenses == 50:
+    print("Nice job, or not. You are spending ", percentage_expenses, "of your monthly income on expenses.")
+
+elif percentage_expenses < 50:
+    print("Also, you are spending", round(percentage_expenses,2), "of your monthly income on expenses. Nice job! That isn't that much!")
+
+elif percentage_expenses > 50:
+    print("You need to get help. Your monthly expenses are", round(percentage_expenses, 2), "of your monthly income.")
