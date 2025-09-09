@@ -13,3 +13,5 @@ time.sleep(2)
 print("Welcome to my program, HUMAN!!!")
 
 #sanitization and stupid proofing!1!11!1!1!1!11!!!1!
+
+#debugging is fixing code!1!!111!1!!!1!
