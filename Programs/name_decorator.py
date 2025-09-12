@@ -1,6 +1,7 @@
 #DD Period 7 Name Decorator
 
 import time
+import sys
 name = input("Good day user. I am the Name Decorator. Please input your name. ").title()
 print(f"Thank you {name}, I will now generate examples for your custom name.")
 time.sleep(1)
@@ -11,24 +12,26 @@ time.sleep(1)
 print("...")
 
 print("Thank you for waiting. Here are your base options.")
-print(f"1. (:< {name} >:)")
+print("1. (:<"+name+">:)")
 time.sleep(1)
-print(f"2. 123{name}456")
+print("2. 123"+name+"456")
 time.sleep(1)
-print(f"3. www{name}www")
+print("3. www"+name+"www")
 time.sleep(1)
-print(f"4. ._.{name}._.")
+print("4. ._."+name+"._.")
 time.sleep(1)
-print(f"5. UwU{name}UwU")
+print("5. UwU"+name+"UwU")
 time.sleep(1)
-print(f"6. D:{name}:D")
+print("6. D:"+name+":D")
 time.sleep(1)
 
 more = input("If you are unhappy with the premade options, please type 'More'. If you like those six above, please type the number you like. ").capitalize()
 
 if more == "More":
     extra = input("I see. Please type the symbol you would like to decorate your name with. ")
-    print(f"{extra}{extra}{extra}{name}{extra}{extra}{extra}")
+    print("Here is your custom name.")
+    time.sleep(1)
+    print(extra+extra+extra+name+extra+extra+extra)
 
 else:
     print("Please wait.")
@@ -36,29 +39,33 @@ else:
     if more == "1":
         print("Here is your custom name.")
         time.sleep(1)
-        print(f"(:< {name} >:)")
+        print("(:<"+name+">:)")
 
     elif more == "2":
         print("Here is your custom name.")
         time.sleep(1)
-        print(f"123{name}456")
+        print("123"+name+"456")
 
     elif more == "3":
         print("Here is your custom name.")
         time.sleep(1)
-        print(f"www{name}www")
+        print("www"+name+"www")
 
     elif more == "4":
         print("Here is your custom name.")
         time.sleep(1)
-        print(f"._.{name}._.")
+        print("._."+name+"._.")
 
     elif more == "5":
         print("Here is your custom name.")
         time.sleep(1)
-        print(f"UwU{name}UwU")
+        print("UwU"+name+"UwU")
 
     elif more == "6":
         print("Here is your custom name.")
         time.sleep(1)
-        print(f"D:{name}:D")
+        print("D:"+name+":D")
+
+    elif more != "1" "2" "3" "4" "5" "6":
+        print("Grrrrrrr, please input one of the options!")
+        sys.exit()
