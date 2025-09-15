@@ -3,8 +3,8 @@
 import random
 import sys
 
-random_number = random.randint(1, 10)
-if random_number == 7:
+random_number = random.randint(1, 25)
+if random_number == 17:
     print("RAAAAARRGGHHHH!!!!!!!!")
     sys.exit()
 
