@@ -48,4 +48,3 @@ print("You are spending ", round((rent/income_left_after_savings)*100, 2) + "% o
 print("You are spending ", round((utilities/income_left_after_savings)*100, 2) + "% of your monthly earnings on utilities.")
 print("You are spending ", round((groceries/income_left_after_savings)*100, 2) + "% of your monthly earnings on groceries.")
 print("You are spending ", round((transportation/income_left_after_savings)*100, 2) + "% of your monthly earnings on transportation.")
-
