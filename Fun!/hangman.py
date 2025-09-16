@@ -78,7 +78,7 @@ def display_hangman(tries):
     return stages[6 - tries]
 
 def hangman():
-    word = random.choice(["python", "java", "kotlin", "javascript"])
+    word = random.choice(["pizza", "minecraft", "modder", "pain", "school", "computer", "python", "java", "javascript", "hangman", "programming", "code", "fun", "game", "player", "keyboard", "mouse", "monitor", "laptop", "desktop"])
     word_completion = "_" * len(word)
     guessed = False
     guessed_letters = []
@@ -126,3 +126,5 @@ def hangman():
         print("Congrats, you guessed the word! You win!")
     else:
         print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+
+hangman()
