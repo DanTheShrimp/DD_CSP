@@ -29,25 +29,23 @@ if total_expenses == 0:
     print("You must be lying! I refuse to help you.")
     sys.exit() #fool proofing. no lying allowed...
 
-def output_everything():
-    print("You will be saving $", round(savings, 2), "every month!")
-    print("That means you will be saving $", round(savings*12, 2), "each year!")
-    print("You will have $", round(income_left, 2), "after all of your expenses.")
-    print("And you will have $", round(income_left*12, 2), "to spend each year." )
+print("You will be saving $", round(savings, 2), "every month!")
+print("That means you will be saving $", round(savings*12, 2), "each year!")
+print("You will have $", round(income_left, 2), "after all of your expenses.")
+print("And you will have $", round(income_left*12, 2), "to spend each year." )
 
-    if percentage_expenses == 50:
-        print("Nice job, or not. You are spending ", round(percentage_expenses*100, 2) + "% of your monthly income on expenses.")
+if percentage_expenses == 50:
+    print("Nice job, or not. You are spending ", round(percentage_expenses*100, 2) + "% of your monthly income on expenses.")
 
-    elif percentage_expenses << 50:
-        print("Also, you are spending", round(percentage_expenses*100, 2) + "% of your monthly income on expenses. Nice job! That isn't that much!")
+elif percentage_expenses << 50:
+    print("Also, you are spending", round(percentage_expenses*100, 2) + "% of your monthly income on expenses. Nice job! That isn't that much!")
 
-    elif percentage_expenses >> 50:
-        print("You need to get help. Your monthly expenses are", round(percentage_expenses*100, 2) + "% of your monthly income.")
+elif percentage_expenses >> 50:
+    print("You need to get help. Your monthly expenses are", round(percentage_expenses*100, 2) + "% of your monthly income.")
 
-    print("Here is a more detailed analysis!")
-    print("You are spending ", round((rent/income_left_after_savings)*100, 2) + "% of your monthly earnings on rent.")
-    print("You are spending ", round((utilities/income_left_after_savings)*100, 2) + "% of your monthly earnings on utilities.")
-    print("You are spending ", round((groceries/income_left_after_savings)*100, 2) + "% of your monthly earnings on groceries.")
-    print("You are spending ", round((transportation/income_left_after_savings)*100, 2) + "% of your monthly earnings on transportation.")
+print("Here is a more detailed analysis!")
+print("You are spending ", round((rent/income_left_after_savings)*100, 2) + "% of your monthly earnings on rent.")
+print("You are spending ", round((utilities/income_left_after_savings)*100, 2) + "% of your monthly earnings on utilities.")
+print("You are spending ", round((groceries/income_left_after_savings)*100, 2) + "% of your monthly earnings on groceries.")
+print("You are spending ", round((transportation/income_left_after_savings)*100, 2) + "% of your monthly earnings on transportation.")
 
-output_everything()
