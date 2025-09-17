@@ -4,27 +4,29 @@ import random
 
 def display_hangman(tries):
     stages = [
-        # final state: head, torso, both arms, and both legs
+        # final state: head, torso, both arms, both legs, hair
         """
            -----
            |   |
+         \\|/   |
            O   |
           /|\\  |
           / \\  |
                |
         =========
         """,
-        # head, torso, both arms, one leg
+        # head, torso, both arms, one leg, hair
         """
            -----
            |   |
+         \\|/   |
            O   |
           /|\\  |
           /    |
                |
         =========
         """,
-        # head, torso, both arms
+        # head, torso, both arms, hair
         """
            -----
            |   |
@@ -34,7 +36,7 @@ def display_hangman(tries):
                |
         =========
         """,
-        # head, torso, one arm
+        # head, torso, one arm, hair
         """
            -----
            |   |
@@ -44,7 +46,7 @@ def display_hangman(tries):
                |
         =========
         """,
-        # head and torso
+        # head, torso, hair
         """
            -----
            |   |
@@ -54,7 +56,7 @@ def display_hangman(tries):
                |
         =========
         """,
-        # head
+        # head and hair
         """
            -----
            |   |
