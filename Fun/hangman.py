@@ -8,7 +8,7 @@ def display_hangman(tries):
         """
            -----
            |   |
-         \\|/   |
+          \\|/  |
            O   |
           /|\\  |
           / \\  |
@@ -19,7 +19,7 @@ def display_hangman(tries):
         """
            -----
            |   |
-         \\|/   |
+          \\|/  |
            O   |
           /|\\  |
           /    |
@@ -30,6 +30,7 @@ def display_hangman(tries):
         """
            -----
            |   |
+          \\|/  |
            O   |
           /|\\  |
                |
@@ -40,6 +41,7 @@ def display_hangman(tries):
         """
            -----
            |   |
+          \\|/  |
            O   |
           /|   |
                |
@@ -50,6 +52,7 @@ def display_hangman(tries):
         """
            -----
            |   |
+          \\|/  |
            O   |
            |   |
                |
@@ -60,7 +63,41 @@ def display_hangman(tries):
         """
            -----
            |   |
+          \\|/  |
            O   |
+               |
+               |
+               |
+        =========
+        """,
+        # hair
+        """
+           -----
+           |   |
+          \\|/  |
+               |
+               |
+               |
+               |
+        =========
+        """,
+        # mostly hair
+        """
+           -----
+           |   |
+          \\|   |
+               |
+               |
+               |
+               |
+        =========
+        """,
+        # almost gone
+        """
+           -----
+           |   |
+           |   |
+               |
                |
                |
                |
@@ -74,18 +111,19 @@ def display_hangman(tries):
                |
                |
                |
+               |
         =========
         """
     ]
-    return stages[6 - tries]
+    return stages[9 - tries]
 
 def hangman():
-    word = random.choice(["pizza", "minecraft", "modder", "pain", "school", "computer", "python", "java", "javascript", "hangman", "programming", "code", "fun", "game", "player", "keyboard", "mouse", "monitor", "laptop", "desktop"])
+    word = random.choice(["pizza", "minecraft", "modder", "pain", "school", "computer", "python", "java", "javascript", "hangman", "programming", "code", "fun", "game", "player", "keyboard", "mouse", "monitor", "laptop", "desktop", "internet", "website", "application", "software", "hardware", "technology"])
     word_completion = "_" * len(word)
     guessed = False
     guessed_letters = []
     guessed_words = []
-    tries = 6
+    tries = 9
     print("Let's play Hangman!")
     print(display_hangman(tries))
     print(word_completion)
