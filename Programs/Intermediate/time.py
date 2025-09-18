@@ -2,7 +2,7 @@
 
 import sys
 try:
-    time = int(input("Please tell me the time. I am suffering because importing time is not working.\n"))
+    time = int(input("Please tell me the hour. I am suffering because importing time is not working.\n"))
 except ValueError:
     print("I fudging hate you... I JUST WANT MY DAMN CODE TO WORK!! WHY DO YOU HAVE TO MAKE IT SO HARD FOR ME?!?!")
     sys.exit()
