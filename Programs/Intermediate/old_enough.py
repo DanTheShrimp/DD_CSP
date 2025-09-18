@@ -19,7 +19,7 @@ elif age >= 16:
 elif age >= 15:
     print("Wow! You are old enough to get a learner's permit!")
 
-elif age >= 6:
+elif age >= 4:
     print("Hey kiddo, you are old enough to go to school!")
 
 else:

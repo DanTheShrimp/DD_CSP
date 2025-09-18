@@ -1,6 +1,6 @@
 #DD Period 7 Conditional Notes
 
-homework_done = input("Did you do your homework? (Yes/No) ").capitalize()
+homework_done = input("Did you do your homework? (Yes/No) ").capitalize().strip()
 
 if "Yes" in homework_done and "No" in homework_done or "Yesn't" in homework_done:
     print("You can't both do and not do your homework, kiddo!")
@@ -10,6 +10,9 @@ elif "No" in homework_done:
 
 elif "Yes" in homework_done:
     print("Good job, you can do what you want!")
+
+elif "Rawr" in homework_done:
+    print("OH MY GOD MY KID TURNED INTO A DINOSAUR!!!!! RUUUUNNN!!!!")
 
 else:
     print("Hmmmmm, that sounds like something you made up...")

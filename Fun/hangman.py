@@ -118,7 +118,7 @@ def display_hangman(tries):
     return stages[9 - tries]
 
 def hangman():
-    word = random.choice(["pizza", "minecraft", "modder", "pain", "school", "computer", "python", "java", "javascript", "hangman", "programming", "code", "fun", "game", "player", "keyboard", "mouse", "monitor", "laptop", "desktop", "internet", "website", "application", "software", "hardware", "technology"])
+    word = random.choice(["pizza", "minecraft", "modder", "pain", "school", "computer", "python", "java", "javascript", "hangman", "programming", "code", "fun", "game", "player", "keyboard", "mouse", "monitor", "laptop", "desktop", "internet", "website", "application", "software", "hardware", "technology", "science", "math", "history", "geography", "art", "music", "movie", "book", "story", "adventure", "fantasy", "mystery", "horror", "comedy", "drama", "romance", "action", "thriller", "sci-fi", "fiction", "nonfiction"])
     word_completion = "_" * len(word)
     guessed = False
     guessed_letters = []
