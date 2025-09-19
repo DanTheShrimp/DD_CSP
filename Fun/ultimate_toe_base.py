@@ -12,7 +12,7 @@ def print_board(board):
 				row.append(' '.join(sub[small_row]))
 			print(' | '.join(row))
 		if big_row < 2:
-			print('-' * 17)
+			print('-' * 21)
 
 def check_win(sub_board):
 	# Check win for a 3x3 board
