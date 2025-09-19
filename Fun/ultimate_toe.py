@@ -96,7 +96,7 @@ def main():
 		winner = check_win(board[br][bc])
 		if winner:
 			sub_wins[br][bc] = winner
-			print(f"Player {winner} wins sub-board ({br}, {bc})!")
+			print(f"Player {winner} has claimed cell ({br+1}, {bc+1})!")
 		# Check main board win
 		main_win = check_win(sub_wins)
 		if main_win:
