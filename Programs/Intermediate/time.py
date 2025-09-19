@@ -6,7 +6,7 @@ try:
 except ValueError:
     print("I fudging hate you... I JUST WANT MY DAMN CODE TO WORK!! WHY DO YOU HAVE TO MAKE IT SO HARD FOR ME?!?!")
     sys.exit()
-else:
+
     if time >= 20 and time <= 24 or time < 5:
         print("Why are you still awake? Go to sleep!")
     elif time >= 5 and time < 12:

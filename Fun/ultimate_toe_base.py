@@ -3,32 +3,16 @@
 # Two players: X and O
 
 def print_board(board):
-	# ASCII art for big X and O
-	big_X = [
-		"\\   /",
-		"  X  ",
-		"/   \\"
-	]
-	big_O = [
-		" /*\\ ",
-		"| O |",
-		" \\_/ "
-	]
-
+	# Print the ultimate board in a readable format
 	for big_row in range(3):
 		for small_row in range(3):
 			row = []
 			for big_col in range(3):
 				sub = board[big_row][big_col]
-				winner = check_win(sub)
-				if winner:
-					art = big_X if winner == 'X' else big_O
-					row.append(art[small_row])
-				else:
-					row.append(' '.join(sub[small_row]))
+				row.append(' '.join(sub[small_row]))
 			print(' | '.join(row))
 		if big_row < 2:
-			print('-' * 23)
+			print('-' * 17)
 
 def check_win(sub_board):
 	# Check win for a 3x3 board
