@@ -1,23 +1,9 @@
 #DD Period 7 For Fun :D
 
 def print_small_board(board, claimed=None):
-    # If claimed, show a big ASCII symbol
-    if claimed == "X":
-        return [
-            "\\    /",
-            "  \\ / ",
-            "   X   ",
-            "  / \\",
-            "/     \\",
-        ]
-    elif claimed == "O":
-        return [
-            "  /---\\  ",
-            " /     \\ ",
-            "|       |",
-            " \\     /",
-            "  \\---/  "
-        ]
+    # If claimed, show simple X or O in all cells
+    if claimed == "X" or claimed == "O":
+        return [" | ".join([f"{claimed:^3}" for _ in row]) for row in board]
     # Each cell is 3 chars wide for alignment
     return [" | ".join([f"{cell:^3}" for cell in row]) for row in board]
 
@@ -81,11 +67,26 @@ def ultimate_tic_tac_toe():
                     print("That board is finished. Choose another.")
                     continue
             # Choose cell
-            row = int(input(f"Player {current_player}, enter cell row (1-3): ")) - 1
-            col = int(input(f"Player {current_player}, enter cell col (1-3): ")) - 1
-            if not (0 <= row < 3 and 0 <= col < 3):
-                print("Invalid cell position. Try again.")
-                continue
+            while True:
+                try:
+                    row = int(input(f"Player {current_player}, enter cell row (1-3): ")) - 1
+                except ValueError:
+                    print("AHHHHHHH I'M GONNA EXPLODE!!! YOU DIDN'T ENTER AN INTEGER FOR CELL ROW!!!")
+                    continue
+                if not (0 <= row < 3):
+                    print("Invalid cell row. Enter a number from 1 to 3.")
+                    continue
+                break
+            while True:
+                try:
+                    col = int(input(f"Player {current_player}, enter cell col (1-3): ")) - 1
+                except ValueError:
+                    print("AHHHHHHH I'M GONNA EXPLODE!!! YOU DIDN'T ENTER AN INTEGER FOR CELL COL!!!")
+                    continue
+                if not (0 <= col < 3):
+                    print("Invalid cell col. Enter a number from 1 to 3.")
+                    continue
+                break
             if boards[br][bc][row][col] != " ":
                 print("Invalid move. Try again.")
                 continue
@@ -111,10 +112,14 @@ def ultimate_tic_tac_toe():
             print("The game is a draw!")
             break
         # Next active board is based on cell played
-        if board_status[row][col] is None:
+        if 0 <= row < 3 and 0 <= col < 3 and board_status[row][col] is None:
             active_board = (row, col)
         else:
             active_board = None # Any unfinished board
         current_player = "O" if current_player == "X" else "X"
 
-ultimate_tic_tac_toe()
+try:
+    ultimate_tic_tac_toe()
+except Exception as e:
+    print("AHHHHHHH I'M GONNA EXPLODE!!! UNEXPECTED ERROR:", e)
+    import sys; sys.exit()
