@@ -3,6 +3,8 @@
 import time
 import random
 import sys
+import keyboard
+
 def doll():
     towards = [
         "/----\\",
@@ -22,29 +24,33 @@ def doll():
         print(item)
     facing_away = True
     print("PRESS E TO RUN")
-    e = input("").strip().upper()
-    if e == "E":
-        advanced_player = 0
-        advanced_player = advanced_player+1
+    while True:
+        if keyboard.is_pressed('e'):
+            advanced_player = 0
+            advanced_player = advanced_player+1
     print("Red light in 1")
     time.sleep(1)
     for item in towards:
         print(item)
     facing_away = False
-    random_time = random.randint(1, 5)
-    print(f"Green light in {random_time}")
+    time_sleep = 5
+    print(f"Green light in 5")
     def see_if_die(true):
         if true == False:
+            random_time = 5
             while random_time > 0:
                 it_is_red = input("").strip().upper()
                 time.sleep(1)
                 random_time = random_time-1
+                if random_time == 0:
+                    it_is_red = "G"
         if it_is_red == "E":
             died = True
         else:
             died = False
         return died
-    if see_if_die(False) == True:
+    if_died = see_if_die(False)
+    if if_died == True:
         print("You died")
         sys.exit()
     for item in away:
