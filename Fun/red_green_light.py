@@ -4,6 +4,10 @@ import time
 import random
 import sys
 import keyboard
+import threading
+
+def placeholder():
+    example = 0
 
 def doll():
     towards = [
@@ -25,9 +29,10 @@ def doll():
     facing_away = True
     print("PRESS E TO RUN")
     while True:
-        if keyboard.is_pressed('e'):
+        if keyboard.is_pressed("e"):
             advanced_player = 0
             advanced_player = advanced_player+1
+            break
     print("Red light in 1")
     time.sleep(1)
     for item in towards:
@@ -35,24 +40,15 @@ def doll():
     facing_away = False
     time_sleep = 5
     print(f"Green light in 5")
-    def see_if_die(true):
-        if true == False:
-            random_time = 5
-            while random_time > 0:
-                it_is_red = input("").strip().upper()
-                time.sleep(1)
-                random_time = random_time-1
-                if random_time == 0:
-                    it_is_red = "G"
-        if it_is_red == "E":
-            died = True
+    timer = threading.Timer(5.0, )
+    timer.start()
+    while True:
+        if keyboard.is_pressed('e'):
+            print("You died!")
+            sys.exit()
         else:
-            died = False
-        return died
-    if_died = see_if_die(False)
-    if if_died == True:
-        print("You died")
-        sys.exit()
+            timer.join()
+            break
     for item in away:
         print(item)
     facing_away = True
@@ -64,9 +60,6 @@ def doll():
         print(item)
     random_time = random.randint(1, 5)
     print(f"Green light in {random_time}")
-    if see_if_die(False) == True:
-        print("You died")
-        sys.exit()
     time.sleep(random_time)
     for item in away:
         print(item)
