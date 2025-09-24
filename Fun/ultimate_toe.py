@@ -1,6 +1,4 @@
 #DD Period 7 For Fun :D
-# Ultimate Tic Tac Toe (Terminal Version)
-# Two players: X and O
 
 def print_board(board):
 	# ASCII art for big X and O
