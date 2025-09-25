@@ -95,7 +95,5 @@ def goblin_encounter(): # We are gonna make a function so we can call a goblin f
     time.sleep(1)
     print("The goblin will attack now.")
     goblin_damage = random.randint(1,6)+2
-
     
-
 goblin_encounter()
