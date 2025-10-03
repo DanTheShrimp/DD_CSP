@@ -7,8 +7,8 @@ int main(void){
     double long_pi = 3.1415926358; // 8 bytes of space
     char letter_grade = 'A'; // 1 byte yey :D
     char name[] = "Daniel";
-    printf("Gibbledy garbledy I cast 'RECEDING HAIRLINE'");
-    printf("%s killed Mr Johanson.", name);
-    printf("Because of that, %s got a %c in Chemistry!", name, letter_grade);
+    printf("Gibbledy garbledy I cast 'RECEDING HAIRLINE'\n");
+    printf("%s killed Mr Johanson.\n", name);
+    printf("Because of that, %s got a %c in Chemistry!\n", name, letter_grade);
     return 0;
 }
