@@ -16,9 +16,14 @@ int main(void){
     printf("Last one. Now how much do you spend on transportation?\n");
     scanf("%f", &transportation);
     float savings = income/10.0;
-    float spending_money = (income/10.0)*9;
+    float spending_money = income-(rent+utilities+groceries+transportation+savings);
 
     printf("All done.\n");
-    printf("Your rent is %f%%");
+    printf("You should set aside $%.2f to save. That is 10%% of your income.\n", savings);
+    printf("Your rent is %.2f%% of your income.\n", (rent/income)*100);
+    printf("Your utilities are %.2f%% of your income.\n", (utilities/income)*100);
+    printf("Your groceries are %.2f%% of your income.\n", (groceries/income)*100);
+    printf("Your transportation is %.2f%% of your income.\n", (transportation/income)*100);
+    printf("After all of your expenses and savings, you will have $%.2f to spend monthly.\n", spending_money);
     return 0;
 }
