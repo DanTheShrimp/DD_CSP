@@ -34,9 +34,9 @@ for item in menu:
 ques1=input("Which of the options above would you like to use?\n").strip
 if ques1=="coin":
     coinanswer=random.randint(1,2)
-    if coinanswer==1:
-        cointranslated="heads"
-    elif coinanswer==2:
-        cointranslated="tails"
+if coinanswer==1:
+    cointranslated='heads'
+elif coinanswer==2:
+    cointranslated='tails'
 time.sleep(1)
 print(f"The answer is {cointranslated}.")
