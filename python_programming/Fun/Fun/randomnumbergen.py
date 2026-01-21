@@ -2,41 +2,41 @@ import random
 import sys
 import time
 
-def menu():
-    menu=[
-        "Coin Flip",
-        "Numbered Die",
-        "Random Card"
-    ]
-    for item in menu:
-        print(item)
-        time.sleep(1)
-    ques1=input("Which of the options above would you like to use?").strip
-    if "coin" in ques1:
-        coinanswer=random.randint(1,2)
-        if coinanswer==1:
-            coinanswer="heads"
-        elif coinanswer==2:
-            coinanswer="tails"
+def coin():
+    coinanswer=random.randint(1,2)
+    if coinanswer==1:
+        coinanswer=str("heads")
+    elif coinanswer==2:
+        coinanswer=str("tails")
+    else:
+        print("Something went wrong.")
     time.sleep(1)
     print(f"The answer is {coinanswer}.")
-    return 0
 
-menu=[
+def die():
+    while True:
+        sidesofdie=int(input("How many sides do you want on the die?\n"))
+        if sidesofdie<=3:
+            print("Choose a number higher than 3.")
+        else:
+            break
+    dieanswer=random.randint(1,sidesofdie)
+    print(f"The answer is {dieanswer}.")
+
+def menu():
+    menu=[
     "Coin Flip",
     "Numbered Die",
     "Random Card"
-]
-cointranslated="placeholder"
-for item in menu:
-    print(item)
-    time.sleep(1)
-ques1=input("Which of the options above would you like to use?\n").strip
-if ques1=="coin":
-    coinanswer=random.randint(1,2)
-if coinanswer==1:
-    cointranslated='heads'
-elif coinanswer==2:
-    cointranslated='tails'
-time.sleep(1)
-print(f"The answer is {cointranslated}.")
+    ]
+    cointranslated="placeholder"
+    for item in menu:
+        print(item)
+        time.sleep(1)
+    ques1=str(input("Which of the options above would you like to use?\n"))
+    if "coin" in ques1:
+        coin()
+    elif "die" in ques1 or "dice" in ques1:
+        die()
+
+menu()
