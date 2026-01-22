@@ -14,8 +14,18 @@ def coin():
     print(f"The side is {coinanswer}.")
 
 def die():
+    loopthing=0
     while True:
-        sidesofdie=int(input("How many sides do you want on the die?\n"))
+        while True:
+            try:
+                loopthing=0
+                sidesofdie=int(input("How many sides do you want on the die?\n"))
+            except ValueError:
+                print("Put in a non-decimal number.")
+                time.sleep(0.5)
+                loopthing=1
+            if loopthing==0:
+                break
         if sidesofdie<=3:
             print("Choose a number higher than 3.")
         else:
