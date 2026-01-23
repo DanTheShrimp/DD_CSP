@@ -2,13 +2,17 @@ import random
 import time
 
 def coin():
-    coinanswer=random.randint(1,2)
-    if coinanswer==1:
-        coinanswer=str("heads")
-    elif coinanswer==2:
-        coinanswer=str("tails")
-    else:
-        print("Something went wrong.")
+    while True:
+        coinanswer=random.randint(1,2)
+        if coinanswer==1:
+            coinanswer=str("heads")
+            break
+        elif coinanswer==2:
+            coinanswer=str("tails")
+            break
+        else:
+            print("Something went wrong. Trying again.")
+            time.sleep(1)
     print("Flipping...")
     time.sleep(1)
     print(f"The side is {coinanswer}.")
@@ -28,6 +32,7 @@ def die():
                 break
         if sidesofdie<=3:
             print("Choose a number higher than 3.")
+            time.sleep(0.75)
         else:
             break
     time.sleep(0.5)
@@ -44,15 +49,16 @@ def card():
     print(f"The card is {cardlist[cardanswer]}.")
 
 def menu():
+    print("Welcome to the Random Generator! Here are all the options:")
+    time.sleep(0.5)
     menu=[
     "Coin Flip",
     "Numbered Die",
     "Random Card"
     ]
-    cointranslated="placeholder"
     for item in menu:
         print(item)
-        time.sleep(1)
+        time.sleep(0.5)
     while True:
         ques1=str(input("Which of the options above would you like to use?\n"))
         if "coin" in ques1:
@@ -68,4 +74,9 @@ def menu():
             print("Choose a valid option.")
             time.sleep(0.5)
 
-menu()
+while True:
+    menu()
+    time.sleep(1)
+    keepgoing=input("Do you want to use the Random Generator again?\n")
+    if "no" in keepgoing or "nah" in keepgoing:
+        break
