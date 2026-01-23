@@ -46,7 +46,7 @@ def card():
     print("Drawing a random card...")
     cardanswer=random.randint(1,54)
     time.sleep(1)
-    print(f"The card is {cardlist[cardanswer]}.")
+    print(f"The card is {cardlist[cardanswer-1]}.")
 
 def menu():
     print("Welcome to the Random Generator! Here are all the options:")
