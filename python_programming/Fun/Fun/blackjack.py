@@ -516,7 +516,7 @@ def player_part():
         split_able="yes"
     while True:
         if split_able=="yes":
-            will_split=input("You are able to split because you're card values are equal. Do you want to split?\n")
+            will_split=input("You are able to split because your cards' values are equal. Do you want to split?\n")
             if "yes" in will_split:
                 typer("Hitting on both.")
                 typer("House's cards: Your cards:")
@@ -615,6 +615,36 @@ def player_part():
                 else:
                     typer(f"Your total card value for pair one is {pc0_value+pc2_value}.")
                     typer(f"Your total card value for pair two is {pc1_value+pc3_value}.")
+                while True:
+                    hit_stand=input("Do you wish to hit or stand on pair one?")
+                    if "hit" in hit_stand:
+                        typer("Hitting on pair one.")
+                        player_card4=random.randint(1,46)
+                        player_hand.append(deck[player_card4])
+                        del deck[player_card4]
+                        if "A" in player_hand[3][1]:
+                            pc3_value="A"
+                        elif "J" in player_hand[3][1] or "Q" in player_hand[3][1] or "K" in         player_hand[3][1]:
+                            pc3_value=10
+                        elif "2" in player_hand[3][1]:
+                            pc3_value=2
+                        elif "3" in player_hand[3][1]:
+                            pc3_value=3
+                        elif "4" in player_hand[3][1]:
+                            pc3_value=4
+                        elif "5" in player_hand[3][1]:
+                            pc3_value=5
+                        elif "6" in player_hand[3][1]:
+                            pc3_value=6
+                        elif "7" in player_hand[3][1]:
+                            pc3_value=7
+                        elif "8" in player_hand[3][1]:
+                            pc3_value=8
+                        elif "9" in player_hand[3][1]:
+                            pc3_value=9
+                        elif "10" in player_hand[3][1]:
+                            pc3_value=10
+
         break
 
 def menu():
