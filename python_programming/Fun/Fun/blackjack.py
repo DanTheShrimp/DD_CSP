@@ -624,7 +624,7 @@ def player_part():
                         del deck[player_card4]
                         if "A" in player_hand[3][1]:
                             pc3_value="A"
-                        elif "J" in player_hand[3][1] or "Q" in player_hand[3][1] or "K" in         player_hand[3][1]:
+                        elif "J" in player_hand[3][1] or "Q" in player_hand[3][1] or "K" in player_hand[3][1]:
                             pc3_value=10
                         elif "2" in player_hand[3][1]:
                             pc3_value=2
