@@ -71,11 +71,11 @@ def typer(text):
     print()
 deck=[
     [" _____ ",
-    "|\   /|",
-    "| \ / |",
+    "|\\   /|",
+    "| \\ / |",
     "|  &  |",
-    "| / \ |",
-    "|/___\|"],
+    "| / \\ |",
+    "|/___\\|"],
 
     [" _____ ",
     "|A .  |",
@@ -1029,7 +1029,7 @@ def player_part():
                 loop_helper+=1
     house_part()
 
-def menu():
+def slug_logo():
     for item in slug:
         print(item)
     time.sleep(3)
@@ -1038,6 +1038,8 @@ def menu():
     print("\n")
     print("\n")
     print("\n")
+
+def menu():
     typer("Welcome to Doomslug Blackjack.")
     time.sleep(0.75)
     typer("Here are the rules:")
