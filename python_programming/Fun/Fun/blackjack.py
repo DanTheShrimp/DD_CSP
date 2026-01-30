@@ -768,7 +768,10 @@ def player_part():
                             pair1_bust=1
                             break
                         else:
-                            typer(f"Your total card value for pair one is {pair1_value}.")
+                            if cards_drawn==0 and pc5_value==1:
+                                typer(f"Your total card value for pair one is 21.")
+                            else:
+                                typer(f"Your total card value for pair one is {pair1_value}")
                         loop_helper+=1
                     elif "stand" in hit_stand:
                         typer(f"Standing on pair one. Your total value for pair one is {pair1_value}.")
@@ -901,12 +904,12 @@ def player_part():
         while True:
             basic_printer("house")
             time.sleep(1)
-            if hc0_value+hc1_value>17:
-                loop_helper=11
-                break
             if "yes" in will_split or "split" in will_split:
                 hcard_helper=2
                 loop_helper=(len(player_hand))-1
+                if hc0_value+hc1_value>17:
+                    loop_helper=11
+                    break
                 next_hcard=house_valuefinder(hcard_helper)
                 if loop_helper==5:
                     advanced_printer(house_hand[2],loop_helper,1)
@@ -972,6 +975,9 @@ def player_part():
             else:
                 loop_helper=(len(player_hand))-1
                 next_hcard=house_valuefinder(2)
+                if hc0_value+hc1_value>17:
+                    loop_helper=11
+                    break
                 if loop_helper==2:
                     advanced_printer(house_hand[2],loop_helper,0)
                     time.sleep(1)
@@ -1005,7 +1011,7 @@ def player_part():
                     advanced_printer(house_hand[6],7,0)
                     advanced_printer(house_hand[7],loop_helper,0)
                     time.sleep(1)
-                house_total=house_checker(hc0_value,hc1_value,1)
+                house_total=house_checker(hc0_value+hc1_value,next_hcard,1)
                 time.sleep(0.5)
                 if next_hcard==1:
                     if house_total+1>21:
@@ -1013,9 +1019,10 @@ def player_part():
                     elif house_total+1<22:
                         if house_total+11>22:
                             next_hcard=1
+                            house_total=house_total+int(next_hcard)
                         else:
                             next_hcard=11
-                house_total=house_total+int(next_hcard)
+                            house_total=house_total+int(next_hcard)
                 if house_total>21:
                     typer("The House busts.")
                     sys.exit()
