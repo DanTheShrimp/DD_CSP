@@ -67,7 +67,7 @@ def typer(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.05) 
+        time.sleep(0.01) 
     print()
 deck=[
     [" _____ ",
@@ -593,7 +593,7 @@ def advanced_printer(hhandnum,phandnum1,phandnum2):
             printer_helper+=1
     except IndexError:
         while printer_helper<6:
-            print(f" {player_hand[0][printer_helper]}        {player_hand[phandnum1][printer_helper]}   {player_hand[0][printer_helper]}")
+            print(f" {player_hand[0][printer_helper]}        {player_hand[0][printer_helper]}   {player_hand[0][printer_helper]}")
             printer_helper+=1
 
 def checker(splitted,card1,card2,card3,card4,extra):
@@ -968,6 +968,15 @@ def player_part():
                     elif house_total<pair1_value and house_total<pair2_value:
                         typer("You win on both pairs.")
                         sys.exit()
+                    elif house_total==pair1_value:
+                        typer("You push on pair one.")
+                        sys.exit()
+                    elif house_total==pair2_value:
+                        typer("You push on pair two.")
+                        sys.exit()
+                    elif house_total==pair2_value:
+                        typer("You push on both pairs.")
+                        sys.exit()
                 loop_helper+=1
             else:
                 loop_helper=(len(player_hand))-1
@@ -1025,6 +1034,9 @@ def player_part():
                         sys.exit()
                     elif house_total<pair1_value:
                         typer("You win.")
+                        sys.exit()
+                    elif house_total==pair1_value:
+                        typer("You push.")
                         sys.exit()
                 loop_helper+=1
     house_part()
