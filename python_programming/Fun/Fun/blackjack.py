@@ -448,8 +448,38 @@ def player_valuefinder(card):
         hp_value=10
     return hp_value
 
-def custom_printer(hcard,pcard):
+def custom_printer(hcard):
     printer_helper=0
+    def seven_card_charlieplayer():
+        try:        
+            print(player_hand[1][printer_helper], end="")
+        except IndexError:
+            print(player_hand[0][0], end="")
+        try:
+            print(player_hand[2][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(player_hand[3][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(player_hand[4][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(player_hand[5][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(player_hand[6][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(player_hand[7][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+
     for item in player_hand[0]:
         try:
             print(house_hand[hcard][printer_helper])
@@ -459,7 +489,7 @@ def custom_printer(hcard,pcard):
     printer_helper=0
     for item in player_hand[0]:
         try:
-            print(player_hand[pcard][printer_helper])
+            seven_card_charlieplayer()
             printer_helper+=1
         except IndexError:
             print(item)
@@ -467,4 +497,4 @@ def custom_printer(hcard,pcard):
 first_pcard=player_valuefinder(1)
 first_hcard=house_valuefinder(0)
 
-custom_printer(0,1)
+custom_printer(0)
