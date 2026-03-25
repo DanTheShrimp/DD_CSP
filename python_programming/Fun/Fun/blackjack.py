@@ -609,3 +609,7 @@ if win_checker_forstart(pcard_1, pcard_2)==1:
     win("p")
 elif win_checker_forstart(hcard_1, hcard_2)==1:
     win("h")
+
+custom_printer("yes")
+time.sleep(2)
+custom_printer("no")
