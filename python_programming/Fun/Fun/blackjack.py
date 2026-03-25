@@ -382,6 +382,8 @@ player_hand=[
     "       ",
     "       "]
 ]
+player_value_history=[]
+house_value_history=[]
 
 def typer(text):
     for char in text:
@@ -546,6 +548,64 @@ hcard_1=house_valuefinder(0)
 pcard_2=player_valuefinder(2)
 hcard_2=house_valuefinder(1)
 
-custom_printer("yes")
-time.sleep(2)
-custom_printer("no")
+def win(who):
+    won=[
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|             You win!              |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"
+    ]
+    lost=[
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|             You lost!             |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"
+    ]
+    if who=="p":
+        for item in won:
+            print(item)
+        sys.exit()
+    elif who=="h":
+        for item in lost:
+            print(item)
+        sys.exit()
+
+def win_checker_forstart(first_num, second_num):
+    win=0
+    if first_num==1 and second_num==10:
+        win=1
+    elif first_num==10 and second_num==1:
+        win=1
+    return win
+
+def total_value_calculator(first_num, second_num, who):
+    lost=0
+    if first_num+second_num>21:
+        lost=1
+    else:
+        total=first_num+second_num
+        who.append(total)
+    return lost
+
+if win_checker_forstart(pcard_1, pcard_2)==1:
+    win("p")
+elif win_checker_forstart(hcard_1, hcard_2)==1:
+    win("h")
