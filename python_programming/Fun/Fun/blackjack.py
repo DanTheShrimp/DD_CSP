@@ -387,7 +387,7 @@ def typer(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.01) 
+        time.sleep(0.05) 
     print()
 
 def house_valuefinder(card):
@@ -448,13 +448,13 @@ def player_valuefinder(card):
         hp_value=10
     return hp_value
 
-def custom_printer(hcard):
+def custom_printer(hidden):
     printer_helper=0
     def seven_card_charlieplayer():
         try:        
-            print(player_hand[1][printer_helper], end="")
+            print(player_hand[1][printer_helper], end=" ")
         except IndexError:
-            print(player_hand[0][0], end="")
+            print(player_hand[0][0], end=" ")
         try:
             print(player_hand[2][printer_helper], end=" ")
         except IndexError:
@@ -476,17 +476,63 @@ def custom_printer(hcard):
         except IndexError:
             print(player_hand[0][0], end=" ")
         try:
-            print(player_hand[7][printer_helper], end=" ")
+            print(player_hand[7][printer_helper])
+        except IndexError:
+            print(player_hand[0][0])
+
+    def seven_card_charliehouse(hidden):
+        if hidden=="yes":
+            try:        
+                print(deck[0][printer_helper], end=" ")
+            except IndexError:
+                print(player_hand[0][0], end=" ")
+        if hidden=="no":
+            try:        
+                print(house_hand[0][printer_helper], end=" ")
+            except IndexError:
+                print(player_hand[0][0], end=" ")
+        try:
+            print(house_hand[1][printer_helper], end=" ")
         except IndexError:
             print(player_hand[0][0], end=" ")
-
-    for item in player_hand[0]:
         try:
-            print(house_hand[hcard][printer_helper])
-            printer_helper+=1
+            print(house_hand[2][printer_helper], end=" ")
         except IndexError:
-            print(item)
+            print(player_hand[0][0], end=" ")
+        try:
+            print(house_hand[3][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(house_hand[4][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(house_hand[5][printer_helper], end=" ")
+        except IndexError:
+            print(player_hand[0][0], end=" ")
+        try:
+            print(house_hand[6][printer_helper])
+        except IndexError:
+            print(player_hand[0][0])
+    typer("House cards:")
+    time.sleep(0.5)
+    for item in player_hand[0]:
+        if hidden=="yes":
+            try:
+                seven_card_charliehouse("yes")
+                printer_helper+=1
+            except IndexError:
+                print(item)
+        if hidden=="no":
+            try:
+                seven_card_charliehouse("no")
+                printer_helper+=1
+            except IndexError:
+                print(item)
     printer_helper=0
+    typer("Your cards:")
+    time.sleep(0.5)
     for item in player_hand[0]:
         try:
             seven_card_charlieplayer()
@@ -494,7 +540,12 @@ def custom_printer(hcard):
         except IndexError:
             print(item)
 
-first_pcard=player_valuefinder(1)
-first_hcard=house_valuefinder(0)
+pcard_1=player_valuefinder(1)
+hcard_1=house_valuefinder(0)
 
-custom_printer(0)
+pcard_2=player_valuefinder(2)
+hcard_2=house_valuefinder(1)
+
+custom_printer("yes")
+time.sleep(2)
+custom_printer("no")
