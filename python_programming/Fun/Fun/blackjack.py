@@ -387,9 +387,8 @@ house_value_history=[]
 
 def typer(text):
     for char in text:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05) 
+        print(char, end="")
+        time.sleep(0.01)
     print()
 
 def house_valuefinder(card):
@@ -610,6 +609,45 @@ if win_checker_forstart(pcard_1, pcard_2)==1:
 elif win_checker_forstart(hcard_1, hcard_2)==1:
     win("h")
 
+def player_turn():
+    def hit_stand_sequence():
+        while True:
+            time.sleep(0.75)
+            typer("Do you want to hit or stand?")
+            try:
+                hit_or_stand=input(str(""))
+            except ValueError:
+                time.sleep(0)
+
+            if "hit" in hit_or_stand and "stand" in hit_or_stand:
+                time.sleep(0)
+            else:
+                if "hit" in hit_or_stand:
+                    hit_or_stand="hit"
+                    break
+                elif "stand" in hit_or_stand:
+                    hit_or_stand="stand"
+                    break
+        return hit_or_stand
+    answer=hit_stand_sequence()
+    typer(answer)
+
+
+typer("Welcome to Blackjack.")
+time.sleep(0.5)
+typer("Here are the rules of this game:")
+time.sleep(0.5)
+typer("1. The goal is to get as close to 21 without going over. If you start with an Ace and another card worth 10, you win instantly.")
+time.sleep(0.75)
+typer("2. Face cards are worth 10, and Aces are worth 1 or 11. Number cards are worth themselves.")
+time.sleep(0.75)
+typer("3. If you reach 7 cards without going over 21, you automatically win. This rule is called Seven Card Charlie, and it also affects the house.")
+time.sleep(0.75)
+typer("4. During your turn, you can hit or stand. Hitting means you want another card, and standing means you stop.")
+time.sleep(0.75)
+typer("5. The house will continuously hit until they reach 17 or any number higher than 17.")
+time.sleep(1.5)
+typer("Let's begin.")
+time.sleep(0.5)
 custom_printer("yes")
-time.sleep(2)
-custom_printer("no")
+player_turn()
