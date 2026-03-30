@@ -384,6 +384,8 @@ player_hand=[
 ]
 player_value_history=[]
 house_value_history=[]
+current_player_value=0
+current_house_value=0
 
 def typer(text):
     for char in text:
@@ -609,7 +611,12 @@ if win_checker_forstart(pcard_1, pcard_2)==1:
 elif win_checker_forstart(hcard_1, hcard_2)==1:
     win("h")
 
-def player_turn():
+def player_value_calculator(firstnum, secondnum):
+    current_player_value=firstnum+secondnum
+    player_value_history.append(current_player_value)
+    return current_player_value
+
+def player_turn(player_value_helper):
     def hit_stand_sequence():
         while True:
             time.sleep(0.75)
@@ -630,7 +637,13 @@ def player_turn():
                     break
         return hit_or_stand
     answer=hit_stand_sequence()
-    typer(answer)
+    if answer=="hit":
+        next_pcard=player_valuefinder(player_value_helper)
+        custom_printer("yes")
+        current_player_value=player_value_calculator(pcard_1,pcard_2)
+        typer("Your current total card value is: ")
+        time.sleep(0.25)
+        typer(str(current_player_value))
 
 
 typer("Welcome to Blackjack.")
@@ -639,7 +652,7 @@ typer("Here are the rules of this game:")
 time.sleep(0.5)
 typer("1. The goal is to get as close to 21 without going over. If you start with an Ace and another card worth 10, you win instantly.")
 time.sleep(0.75)
-typer("2. Face cards are worth 10, and Aces are worth 1 or 11. Number cards are worth themselves.")
+typer("2. Face cards are worth 10, and Aces are worth 1. Number cards are worth themselves.")
 time.sleep(0.75)
 typer("3. If you reach 7 cards without going over 21, you automatically win. This rule is called Seven Card Charlie, and it also affects the house.")
 time.sleep(0.75)
@@ -650,4 +663,4 @@ time.sleep(1.5)
 typer("Let's begin.")
 time.sleep(0.5)
 custom_printer("yes")
-player_turn()
+player_turn(3)
