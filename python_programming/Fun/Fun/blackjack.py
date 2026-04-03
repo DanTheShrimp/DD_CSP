@@ -616,6 +616,11 @@ def player_value_calculator(firstnum, secondnum):
     player_value_history.append(current_player_value)
     return current_player_value
 
+def house_value_calculator(firstnum, secondnum):
+    current_house_value=firstnum+secondnum
+    house_value_history.append(current_house_value)
+    return current_house_value
+
 def value_printer(who):
     if who=="p":
         typer("Your current total card value is: ")
@@ -644,6 +649,17 @@ typer("Let's begin.")
 time.sleep(0.5)
 custom_printer("yes")
 current_player_value=player_value_calculator(pcard_1,pcard_2)
+current_house_value=house_value_calculator(hcard_1,hcard_2)
+
+if win_checker_forstart(pcard_1, pcard_2)==1:
+    typer("You got Blackjack!")
+    time.sleep(0.5)
+    win("p")
+elif win_checker_forstart(hcard_1, hcard_2)==1:
+    typer("The house got Blackjack.")
+    time.sleep(0.5)
+    win("h")
+
 value_printer("p")
 
 def player_turn(player_value_helper):
@@ -675,5 +691,40 @@ def player_turn(player_value_helper):
         typer("Your current total card value is: ")
         time.sleep(0.25)
         typer(str(current_player_value))
+        return "Hit"
+    elif answer=="stand":
+        typer("Standing.")
+        return "Stand"
 
-player_turn(3)
+loop_helper=3
+while True:
+    if player_turn(loop_helper)=="Stand":
+        break
+    if loop_helper==7 and player_value_history[6]<22:
+        typer("Congratulations. You have reach 7 cards without going over 21.")
+        win("p")
+    elif loop_helper==7:
+        break
+    loop_helper+=1
+
+time.sleep(1)
+typer("It is now the house's turn.")
+
+def house_turn(house_value_helper):
+    time.sleep(0.75)
+    typer("The house will hit.")
+    next_hcard=house_valuefinder(house_value_helper)
+    custom_printer("no")
+    house_value_calculator(house_value_history[house_value_helper-3, next_hcard])
+    current_house_value=house_value_history[house_value_helper-2]
+    typer("The house's current total card value is: ")
+    time.sleep(0.25)
+    typer(str(current_house_value))
+    if current_house_value>21:
+        typer("The house busts.")
+        win("p")
+    elif current_house_value>=17:
+        typer("The house stands.")
+        return "Stand"
+    elif current_house_value<17:
+        return "Hit"
