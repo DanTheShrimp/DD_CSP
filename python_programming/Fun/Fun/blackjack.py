@@ -1,5 +1,74 @@
 import sys, time, random
 #SEVEN CARD CHARLIE!!!
+import os
+
+def clear_terminal():
+    # 'nt' is for Windows, otherwise (macOS/Linux) use 'clear'
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+slug=[
+"                                               :===-:                                      -+*#*=-             ",
+"                                              +#%%####=-                                  *#%%#%#*=            ",
+"                                              =###***%##+-   :=++==-:-=+#*=-:=--         +##*++*##*=           ",
+"                                              =###***#%###+--*%%#%%#**#%%%%##%%%*=     -+##++++#%#*=-          ",
+"                                              :*%#*****+#%#*####*++#%##++*#%#*+*%#=: ::+#*++*+++*##+-          ",
+"                                              -#%#*****+*##%%%***++*%%*+**##*++*#%%%%##%%#++*++**##+-          ",
+"                                        -+*#######*****#***####*++*#%%%**#####%**###*####**##*+++*#+           ",
+"                                       -*######%%%#**++#%**##%#***##**#%%%#**%##**#*++##++*##*++*##+           ",
+"                            ---        =###****##%%#****#%***##**##**#**##*++++++*#****%**##*++**#*=           ",
+"                          +*%%###*+--- -*####%%#**#%%#***##**#%#*##*#####%#*++++**#**+*#*##**+++##+            ",
+"                         +#%#***#####***%%#*##%%#**#%%#**##**###*##****+*%*+++++*##***#####+++*#%*             ",
+"                         +####%%##**#%%%%%%##*******#%%%####*####%##****##*+++++*##*+*%###****##=              ",
+"                          +#####%##*#**#%%%%####*****#%%%%%%##**+++**###%##******##**#%####%%%%%*+-            ",
+"                  ===++=+=+#%#***##############%##***#%*+===+*########***+*####%%%%%%%%%%#*+==-=*#*=           ",
+"                 =*#%#%#%%%%%%%%%%#########*#####%%##+-=+#%#*****#******##%#*+=--------=+#########%*+-         ",
+"                 +##***#####%%%%%%%%%%%%#%########*=-+#%#******######%###***####*=----+%#***#####**##*+        ",
+"                -=*%##%%%%%#*##%%#####%%%%%%##*%%+-=*##***###%%#*+===++*##%##***##*++##**##*+++####**#*=       ",
+"             -+**##%%%#####*########%%%##*##%%%+--=*%#***###*=::::::::::::-+#####**##**#%#=:::::-=###**#+-     ",
+"            =*%%####%%%%%%######%%###########%+---+#*****##=:::::::::::::::::-+##%####%#+-::::::::-*%#**#*=    ",
+"            -#%###%%%%#####%%%#%%%%%%%%####%#=---+#*++**##=:::::-=****=-::::::::-=+++=-::::---::::::+##**#*+   ",
+"             =*%################*#######%%%#=---=*#*++*##=::::-+#####%##*-::::::::::::::-*###%#*+-::-=%##*#+=  ",
+"               +*#%%##*######%%###%%###*###+----=##+++#%*-:::=*#####+--=+*=::::::::::::=#%%%*-:=#+::::=##**#=  ",
+"                  ++*#%%%%%%%%%%%##*#######=----+#*+++#%+:::-*###%%*=:.:+#+-::::::::::=#####+:.-**=::::*##*#*- ",
+"           :=+####%#***#%####%###%%%%###%%*-----+#*+++##+:::-####%%##**###*-::::::::::+#####%#####+-:::=##**#= ",
+"           +#%####%%#%%%####%%##***###%%%#=-----+%*+++##*:::-*#####%######*-::::::::::+######%####+::::-##**#*-",
+"           *##**#%%%#*###%%#############%*=-----+%*+++##+-::-+######%%####+-::::::::::-####%#####*-::::-*#*+*#=",
+"           -+##########**###%%%%%##%%%%%%*--:---=##+++*%*-:::-+#%#########=::::::::::::-+####%%*-::::::-*#*+*#=",
+"               =+*%%%######*#%######%####*-------*#*++*##+::::::=*######*=::==--::::=+-::-=+==-::::::::-*#++##=",
+"                 #%%%%%%%%%%###%####%##%#=-------*%#*++*#*-:::::::::::::::::=%%+-::=#%=::::::::::::::::+##+*#*:",
+"                 #%%%%%%%%%%###%####%##%#=-------*%#*++*#*-:::::::::::::::::=%%+-::=#%=::::::::::::::::+##+*#*:",
+"                *#%##%%%#*##%%%%%%%######-------:-##**++##=:-::::::::::::::::-+%%%%%*-::::::::::::::::+%#*+##+ ",
+"           -=++**%#########%%%#####%%%%#*--------:+##****#*-:::::::::::::::::::::::::::::::::::::::::+%#+**#*= ",
+"          =*%%####%%%%%%########%%%#*###+----------*%#**+*#+-::::::::::::::::::::::::::::::::::::::-+%#++*#%*  ",
+"          +##############%%%%%##########=--:--------*%##**##+-::::::::::::::::::::::::::::::::::::=#%*+**#%*+  ",
+"          -*####%%%###*#**###%%%%%###%%*-------------*%#***#%*-::::::::::::::::::::::::::::::::::=##++*####*   ",
+"            =*#%%#################%%%##+--------------*%##**#%*=::::::::::::::::::::::::::::::::+%#***##*#*+   ",
+"               -+#%%%%#%%%%###%%%#**###=---------------*%#***###+-::::::::::::::::::::::::::::=#%****%*=*%#    ",
+"               =#%##%######%##%%#####%*-----------------*%##***##+-:::::::::::::::::::::::::-*%#+**##=-+##-    ",
+"               *####%%######%%%%%%%%##=-----------------=###****##+-:::::::::::::::::::::::=##*+++*#+-=##+     ",
+"               -+#%########%%##%#####+-------------------+##***++*#+-:::::::::::::::::::::=##++++*#+--+##      ",
+"                =*#%%%%%%%%%%%%%%##%#=--:-----------------*%*++++*##+::::::::::::::::::::=##*++++**--=##=      ",
+"                +####%%####**%%#*###=---------------------+#*+++++*##=::::::::::::::::::-*#*++++*#+:-*#*:      ",
+"                =+##%%%######%#==*%*----------------------+#*++++++*#*-:::::::::::::::::=##*++++*#+-=*#=       ",
+"               =+##*++**###%%%*=*%#=--=*###%%%%####*++++**###***+++###+-::::::::::::::::-*#*+++++#*-=##-       ",
+"            :-+##*=-----=+#%%%++##==*#%%##############%%%%%##******###*-::::::::::::::::-+#****++*#+=##-       ",
+"           =*##+=------+##+=**+####%%################%%%%####*****##%##-:::::::::::::::::-##******#%*##=       ",
+"         :=*#*=---------=---=+#%%#%###*#######*#############**##*#%**##=::::::::::::::::::=###*****#%%#+:      ",
+"        ++*#+=--------------+#%%%############################*##%#+=*#*-:::::::::::::::::::-*#%%#***##%#*=     ",
+"     -+##%%#=--------------=*%%%############%%%%%%%%%%%%%%%%%%#*+=-+#%=:::::::::::::::::::::::-+*%##***###+    ",
+"   =**%%%##*=------------=+*%%%#**#######%#*+=-=-------=====------=*%*:::::::::::::::::::::::::::-*%#****##+-  ",
+" -+#%%***###*+=--------=*#%%%######*#%%%*=-----------------------=*#*-:::::::::::::::::::::::::::::=#%#***#%*= ",
+"=+#%#******#%%%%#####%%%%%########%%#*=-----==+++====----------=+##=::::::::::::::::::::::::::::::::-##***+##*:",
+"=*%#*******#*################**#%%*=---==+#%#*++++**####*+++**###=-::::::::::::::::::::::::::::::::::+##**+*##=",
+"=*###**######################%%#+=----=*%#=:::::::::::::::----:::::::::::::::::::::::::::::::::::::::=##*++*##=",
+" +#%######################%%#+=-----=*#%+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::=##*++*%# ",
+"   *#%%%#############%%%%#+---------=%#+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-#%*++*%#= ",
+"      -+##%%%%%%##**++==------------=##=:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-*#*+*#%#   ",
+"          +#%*+=---------------=*+=--+#*-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::=*##%%%#     ",
+"            *#%#*+==-----------=+#%#+==##+-:::::::::::::::::::::::::::::::::::::::::::::::::::::=*%%*+=        ",
+"              -*###%%##**********##%%%###%%#*++==+========------==-------------------------++*#%%%*            ",
+"                    +****########%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%%%%%%%%#+-                "
+]
 deck=[
     [" _____ ",
     "|\\   /|",
@@ -389,8 +458,9 @@ current_house_value=0
 
 def typer(text):
     for char in text:
-        print(char, end="")
-        time.sleep(0.01)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05) 
     print()
 
 def house_valuefinder(card):
@@ -580,12 +650,31 @@ def win(who):
     "|                                   |",
     "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"
     ]
+    tie=[
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|            It's a tie.            |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|                                   |",
+    "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"
+    ]
     if who=="p":
         for item in won:
             print(item)
         sys.exit()
     elif who=="h":
         for item in lost:
+            print(item)
+        sys.exit()
+    elif who=="t":
+        for item in tie:
             print(item)
         sys.exit()
 
@@ -597,20 +686,6 @@ def win_checker_forstart(first_num, second_num):
         win=1
     return win
 
-def total_value_calculator(first_num, second_num, who):
-    lost=0
-    if first_num+second_num>21:
-        lost=1
-    else:
-        total=first_num+second_num
-        who.append(total)
-    return lost
-
-if win_checker_forstart(pcard_1, pcard_2)==1:
-    win("p")
-elif win_checker_forstart(hcard_1, hcard_2)==1:
-    win("h")
-
 def player_value_calculator(firstnum, secondnum):
     current_player_value=firstnum+secondnum
     player_value_history.append(current_player_value)
@@ -621,18 +696,13 @@ def house_value_calculator(firstnum, secondnum):
     house_value_history.append(current_house_value)
     return current_house_value
 
-def value_printer(who):
-    if who=="p":
-        typer("Your current total card value is: ")
-        time.sleep(0.25)
-        typer(str(current_player_value))
-    elif who=="h":
-        typer("The house's total card value is: ")
-        time.sleep(0.25)
-        typer(str(current_house_value))
+for item in slug:
+    print(item)
+time.sleep(3)
+clear_terminal()
 
-typer("Welcome to Blackjack.")
-time.sleep(0.5)
+typer("Welcome to Doomslug Blackjack.")
+time.sleep(0.75)
 typer("Here are the rules of this game:")
 time.sleep(0.5)
 typer("1. The goal is to get as close to 21 without going over. If you start with an Ace and another card worth 10, you win instantly.")
@@ -648,8 +718,9 @@ time.sleep(1.5)
 typer("Let's begin.")
 time.sleep(0.5)
 custom_printer("yes")
-current_player_value=player_value_calculator(pcard_1,pcard_2)
-current_house_value=house_value_calculator(hcard_1,hcard_2)
+
+player_value_calculator(pcard_1,pcard_2)
+house_value_calculator(hcard_1,hcard_2)
 
 if win_checker_forstart(pcard_1, pcard_2)==1:
     typer("You got Blackjack!")
@@ -660,9 +731,15 @@ elif win_checker_forstart(hcard_1, hcard_2)==1:
     time.sleep(0.5)
     win("h")
 
-value_printer("p")
+typer("Your current total card value is: ")
+time.sleep(0.25)
+typer(str(player_value_history[len(house_value_history)-1]))
 
 def player_turn(player_value_helper):
+    player_historylen=len(player_value_history)-1
+    if player_value_history[player_historylen]>21:
+        typer("You bust.")
+        win("h")
     def hit_stand_sequence():
         while True:
             time.sleep(0.75)
@@ -712,19 +789,54 @@ typer("It is now the house's turn.")
 
 def house_turn(house_value_helper):
     time.sleep(0.75)
-    typer("The house will hit.")
-    next_hcard=house_valuefinder(house_value_helper)
     custom_printer("no")
-    house_value_calculator(house_value_history[house_value_helper-3, next_hcard])
-    current_house_value=house_value_history[house_value_helper-2]
+    time.sleep(0.5)
     typer("The house's current total card value is: ")
     time.sleep(0.25)
-    typer(str(current_house_value))
-    if current_house_value>21:
-        typer("The house busts.")
-        win("p")
-    elif current_house_value>=17:
+    typer(str(house_value_history[len(house_value_history)-1]))
+    time.sleep(0.75)
+    if house_value_history[len(house_value_history)-1]>=17:
         typer("The house stands.")
         return "Stand"
-    elif current_house_value<17:
-        return "Hit"
+    else:
+        typer("The house will hit.")
+        next_hcard=house_valuefinder(house_value_helper)
+        custom_printer("no")
+        house_value_calculator(house_value_history[house_value_helper-3], next_hcard)
+        current_house_value=house_value_history[len(house_value_history)-1]
+        if current_house_value>21:
+            typer("The house busts.")
+            win("p")
+        elif current_house_value>=17:
+            typer("The house stands.")
+            return "Stand"
+        elif current_house_value<17:
+            return "Hit"
+        typer("The house's current total card value is: ")
+        time.sleep(0.25)
+        typer(str(current_house_value))
+
+time.sleep(1)
+loop_helper=2
+while True:
+    if house_turn(loop_helper)=="Stand":
+        break
+    if loop_helper==7 and house_value_history[6]<22:
+        typer("The house reached 7 cards without going over 21.")
+        win("h")
+    elif loop_helper==7:
+        break
+    loop_helper+=1
+
+latest_player_value=len(player_value_history)-1
+latest_house_value=len(house_value_history)-1
+
+if latest_player_value>latest_house_value:
+    typer("You got closer to 21 than the house.")
+    win("p")
+elif latest_house_value>latest_player_value:
+    typer("The house got closer to 21 than you.")
+    win("h")
+elif latest_player_value==latest_house_value:
+    typer("You got the same score as the house.")
+    win("t")
