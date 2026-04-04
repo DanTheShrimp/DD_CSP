@@ -460,7 +460,7 @@ def typer(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.05) 
+        time.sleep(0.025) 
     print()
 
 def house_valuefinder(card):
@@ -736,8 +736,7 @@ time.sleep(0.25)
 typer(str(player_value_history[len(house_value_history)-1]))
 
 def player_turn(player_value_helper):
-    player_historylen=len(player_value_history)-1
-    if player_value_history[player_historylen]>21:
+    if player_value_history[len(house_value_history)-1]>21:
         typer("You bust.")
         win("h")
     def hit_stand_sequence():
@@ -763,8 +762,8 @@ def player_turn(player_value_helper):
     if answer=="hit":
         next_pcard=player_valuefinder(player_value_helper)
         custom_printer("yes")
-        player_value_calculator(player_value_history[player_value_helper-3],next_pcard)
-        current_player_value=player_value_history[player_value_helper-2]
+        player_value_calculator(player_value_history[len(house_value_history)-1],next_pcard)
+        current_player_value=player_value_history[len(house_value_history)-1]
         typer("Your current total card value is: ")
         time.sleep(0.25)
         typer(str(current_player_value))
@@ -802,7 +801,7 @@ def house_turn(house_value_helper):
         typer("The house will hit.")
         next_hcard=house_valuefinder(house_value_helper)
         custom_printer("no")
-        house_value_calculator(house_value_history[house_value_helper-3], next_hcard)
+        house_value_calculator(house_value_history[len(house_value_history)-1], next_hcard)
         current_house_value=house_value_history[len(house_value_history)-1]
         if current_house_value>21:
             typer("The house busts.")
@@ -831,12 +830,14 @@ while True:
 latest_player_value=len(player_value_history)-1
 latest_house_value=len(house_value_history)-1
 
-if latest_player_value>latest_house_value:
+if latest_player_value==latest_house_value:
+    typer("You got the same score as the house.")
+    win("t")
     typer("You got closer to 21 than the house.")
     win("p")
 elif latest_house_value>latest_player_value:
     typer("The house got closer to 21 than you.")
     win("h")
-elif latest_player_value==latest_house_value:
-    typer("You got the same score as the house.")
-    win("t")
+elif latest_house_value<latest_player_value:
+    typer("You got closer to 21 than the house.")
+    win("p")
