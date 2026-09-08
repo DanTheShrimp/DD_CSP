@@ -836,7 +836,7 @@ else:
     for item in slug:
         print(item) #printing the slug
 time.sleep(3) #waiting, as if the slug was the loading screen
-#clear_terminal() #clear the terminal
+clear_terminal() #clear the terminal
 typer("Welcome to Doomslug Blackjack.")
 while True:
     time.sleep(0.75)
