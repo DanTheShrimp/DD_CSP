@@ -11,4 +11,5 @@ print(f"Your new letter is {new_letter}.")"""
 def typer(text):
     for char in text:
         print(char,end="")
+        time.sleep(0.05)
     print("")
